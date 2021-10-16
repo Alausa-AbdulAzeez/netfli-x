@@ -5,14 +5,11 @@ import axios from "axios";
 
 export default function WidgetSm() {
   const [newUsers, setNewUsers] = useState([]);
-  const axiosInstance = axios.create({
-    baseURL: "https://netfli-x.herokuapp.com/api/",
-  });
 
   useEffect(() => {
     const getNewUsers = async () => {
       try {
-        const res = await axiosInstance.get("/users?new=true", {
+        const res = await axios.get("/users?new=true", {
           headers: {
             token:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTJjYjlmMGQ4YTcxY2E2MWFlNGE2NyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzM1OTAyNCwiZXhwIjoxNjMzNzkxMDI0fQ.E6t70UdrsqstvIeGnD-tBTQJPWjUx3qb184xwiG7Tdk",

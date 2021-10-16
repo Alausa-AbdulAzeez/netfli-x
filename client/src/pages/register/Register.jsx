@@ -8,13 +8,6 @@ function Register() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const history = useHistory();
-  const axiosInstance = axios.create({
-    baseURL: "https://netfli-x.herokuapp.com/api/",
-  });
-
-  // `http://localhost:${
-  //       process.env.PORT || 5000
-  //     }/api`
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -28,7 +21,7 @@ function Register() {
     try {
       setPassword(passwordRef.current.value);
       setUsername(usernameRef.current.value);
-      await axiosInstance.post("/auth/register", { email, username, password });
+      await axios.post("/auth/register", { email, username, password });
       history.push("/login");
     } catch (error) {}
   };

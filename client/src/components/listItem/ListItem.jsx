@@ -13,14 +13,10 @@ function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
 
-  const axiosInstance = axios.create({
-    baseURL: "https://netfli-x.herokuapp.com/api/",
-  });
-
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axiosInstance.get("/movies/find/" + item, {
+        const res = await axios.get("/movies/find/" + item, {
           headers: {
             token:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTJjYjlmMGQ4YTcxY2E2MWFlNGE2NyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzk1ODAwMSwiZXhwIjoxNjM4Mjc4MDAxfQ.zQ8wf_-KOzZiDI8IaIyRI2Uvapoysaz8FMrcQ_x00qI",

@@ -6,7 +6,7 @@ const authRoute = require("./routes/auth");
 const usersRoute = require("./routes/users");
 const moviesRoute = require("./routes/movies");
 const listsRoute = require("./routes/lists");
-const cors = require("cors");
+// const cors = require("cors");
 
 const path = require("path");
 
@@ -20,7 +20,7 @@ mongoose
   .then(() => console.log("Connected to the DB"))
   .catch((error) => console.log(error));
 
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json());
 app.use("/api/auth", authRoute);
@@ -33,6 +33,6 @@ app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = 8800;
 
 app.listen(PORT, () => console.log("Backend server is running"));

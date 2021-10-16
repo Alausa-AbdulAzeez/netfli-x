@@ -14,13 +14,10 @@ import {
   updateMovieSuccess,
 } from "./MovieActions";
 
-const axiosInstance = axios.create({
-  baseURL: "https://netfli-x.herokuapp.com/api/",
-});
 export const getMovies = async (dispatch) => {
   dispatch(getMoviesStart());
   try {
-    const res = await axiosInstance.get("/movies", {
+    const res = await axios.get("/movies", {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -34,7 +31,7 @@ export const getMovies = async (dispatch) => {
 export const deleteMovie = async (id, dispatch) => {
   dispatch(deleteMovieStart());
   try {
-    const res = await axiosInstance.delete("/movies/" + id, {
+    const res = await axios.delete("/movies/" + id, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -50,7 +47,7 @@ export const deleteMovie = async (id, dispatch) => {
 export const createMovie = async (movie, dispatch) => {
   dispatch(createMovieStart());
   try {
-    const res = await axiosInstance.post("/movies", movie, {
+    const res = await axios.post("/movies", movie, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -67,7 +64,7 @@ export const createMovie = async (movie, dispatch) => {
 export const updateMovie = async (movie, dispatch) => {
   dispatch(updateMovieStart());
   try {
-    const res = await axiosInstance.put("/movies/" + movie._id, movie, {
+    const res = await axios.put("/movies/" + movie._id, movie, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

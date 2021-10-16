@@ -6,14 +6,10 @@ import { useEffect, useState } from "react";
 function Featured({ type }) {
   const [content, setContent] = useState({});
 
-  const axiosInstance = axios.create({
-    baseURL: "https://netfli-x.herokuapp.com/api/",
-  });
-
   useEffect(() => {
     const getRandomContent = async () => {
       try {
-        const res = await axiosInstance.get(`/movies/random?type=${type}`, {
+        const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
             token:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTJjYjlmMGQ4YTcxY2E2MWFlNGE2NyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzk1ODAwMSwiZXhwIjoxNjM4Mjc4MDAxfQ.zQ8wf_-KOzZiDI8IaIyRI2Uvapoysaz8FMrcQ_x00qI",

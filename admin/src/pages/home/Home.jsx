@@ -8,9 +8,6 @@ import axios from "axios";
 
 export default function Home() {
   const [userStats, setUserStats] = useState([]);
-  const axiosInstance = axios.create({
-    baseURL: "https://netfli-x.herokuapp.com/api/",
-  });
 
   const months = useMemo(
     () => [
@@ -33,7 +30,7 @@ export default function Home() {
   useEffect(() => {
     const getStats = async () => {
       try {
-        const res = await axiosInstance.get("/users/stats", {
+        const res = await axios.get("/users/stats", {
           headers: {
             token:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTJjYjlmMGQ4YTcxY2E2MWFlNGE2NyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMjkxODU5MywiZXhwIjoxNjMzMzUwNTkzfQ.NcXLlRAwu15oAuBxQNnGgoJbmXa6yLPY2l73bS_P4Ss",
