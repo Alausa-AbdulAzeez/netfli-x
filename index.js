@@ -28,11 +28,6 @@ app.use("/api/users", usersRoute);
 app.use("/api/movies", moviesRoute);
 app.use("/api/lists", listsRoute);
 
-app.use(express.static(path.resolve(__dirname, "./client/build")));
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-});
-
 const PORT = 8800;
 
 app.listen(PORT, () => console.log("Backend server is running"));
