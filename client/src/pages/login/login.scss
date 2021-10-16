@@ -1,0 +1,100 @@
+@import "../../app.scss";
+
+.login {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/5a27cb25-33a9-4bcc-b441-95fefabcbd37/bf0154c6-c553-49df-b386-6ae597308715/NG-en-20210823-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  position: relative;
+
+  .top {
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 50px;
+
+      @include mobile {
+        padding: 20px 20px;
+      }
+
+      .logo {
+        height: 40px;
+      }
+    }
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      flex-direction: column;
+      color: white;
+
+      form {
+        width: 400px;
+        height: 400px;
+        padding: 30px;
+        border-radius: 5px;
+        background-color: var(--main-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        @include mobile {
+          width: 250px;
+          height: 250px;
+          font-size: smaller;
+        }
+
+        input {
+          height: 40px;
+          border-radius: 5px;
+          background-color: grey;
+          color: white;
+          padding-left: 10px;
+
+          &::placeholder {
+            color: lightgrey;
+          }
+
+          @include mobile {
+            height: 30px;
+            font-size: smaller;
+          }
+        }
+
+        button {
+          height: 40px;
+          border-radius: 5px;
+          background-color: red;
+          color: white;
+          border: none;
+          font-size: 18px;
+          font-weight: 500;
+          cursor: pointer;
+
+          @include mobile {
+            height: 30px;
+            font-size: smaller;
+          }
+        }
+
+        span {
+          color: lightgrey;
+
+          b {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
