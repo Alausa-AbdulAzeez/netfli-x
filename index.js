@@ -13,7 +13,7 @@ const path = require("path");
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
